@@ -1,0 +1,53 @@
+| Table Name    | Purpose                   | Source          |
+| ------------- | ------------------------- | --------------- |
+| **customers** | Customer information      | Cleaned dataset |
+| **orders**    | Transaction/order details | Cleaned dataset |
+| **products**  | Product catalog           | Cleaned dataset |
+
+
+| Column        | Description        |
+| ------------- | ------------------ |
+| customer_id   | Unique customer ID |
+| customer_name | Name of customer   |
+| segment       | Customer segment   |
+
+
+| Column      | Description              |
+| ----------- | ------------------------ |
+| order_id    | Unique order ID          |
+| order_date  | Date of order            |
+| customer_id | Links to customers table |
+| sales       | Sales amount             |
+| margin      | Profit from order        |
+
+| Column       | Description       |
+| ------------ | ----------------- |
+| product_id   | Unique product ID |
+| product_name | Product name      |
+| category     | Product category  |
+| cost         | Product cost      |
+
+
+
+
+
+import sqlite3
+
+conn = sqlite3.connect("output/database.sqlite")
+
+customers.to_sql("customers", conn, if_exists="replace", index=False)
+orders.to_sql("orders", conn, if_exists="replace", index=False)
+products.to_sql("products", conn, if_exists="replace", index=False)
+
+conn.close()
+
+print("database.sqlite created successfully.")
+
+
+conn = sqlite3.connect("output/database.sqlite")
+
+print(pd.read_sql("SELECT COUNT(*) FROM customers", conn))
+print(pd.read_sql("SELECT COUNT(*) FROM orders", conn))
+print(pd.read_sql("SELECT COUNT(*) FROM products", conn))
+
+conn.close()

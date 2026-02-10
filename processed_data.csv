@@ -1,0 +1,14 @@
+| Column Name         | Description                  |
+| ------------------- | ---------------------------- |
+| order_id            | Unique order number          |
+| order_date          | Date of order                |
+| customer_id         | Unique customer ID           |
+| customer_name       | Customer name                |
+| segment             | Customer segment             |
+| product_id          | Unique product ID            |
+| product_name        | Product name                 |
+| category            | Product category             |
+| sales               | Sales amount                 |
+| cost                | Cost of product              |
+| margin              | Profit per order             |
+| high_value_customer | 1 = high spender, 0 = normal |
